@@ -1,7 +1,8 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import com.revrobotics.CANSparkMax;
@@ -22,6 +23,8 @@ public class Robot extends TimedRobot {
   private CANSparkMax m_rightMotor2;
   private CANSparkMax m_garra;
   private Garra claw;
+  private Timer timer;
+  private Limelight limelight;
 
   @Override
   public void robotInit() {
@@ -46,6 +49,7 @@ public class Robot extends TimedRobot {
     m_rightMotor2.setInverted(false);
     m_garra = new CANSparkMax(clawID, MotorType.kBrushed);
     claw = new Garra(m_garra, clawID);
+    limelight = new Limelight();
     
     /**
      * The RestoreFactoryDefaults method can be used to reset the configuration parameters
@@ -61,13 +65,15 @@ public class Robot extends TimedRobot {
     m_myRobot2 = new DifferentialDrive(m_leftMotor2, m_rightMotor2);
 
     m_joyStick = new Joystick(0);
+
+    timer = new Timer();
    
   }
 
   @Override
   public void teleopPeriodic() {
-    m_myRobot1.arcadeDrive(m_joyStick.getZ()*0.4, m_joyStick.getY()*0.50);
-    m_myRobot2.arcadeDrive(m_joyStick.getZ()*0.4, m_joyStick.getY()*0.50);
+    m_myRobot1.arcadeDrive(m_joyStick.getZ()*0.45, m_joyStick.getY()*0.60);
+    m_myRobot2.arcadeDrive(m_joyStick.getZ()*0.45, m_joyStick.getY()*0.60);
   
   if (m_joyStick.getRawButtonPressed(6))
   {
@@ -89,7 +95,40 @@ public class Robot extends TimedRobot {
   }
   
   }
+  @Override
+  public void autonomousInit(){
+    timer.reset();
+    timer.start();
+  }
 
+  @Override
+  public void autonomousPeriodic(){
+    timer.reset();
+    timer.start();
+    
+    limelight.update();
+    limelight.dashboard();
 
+    m_myRobot1.arcadeDrive(limelight.pidX(), -0.32);
 
+    /* 
+    while(timer.get()<0.2){
+      m_myRobot1.arcadeDrive(0, 0.5);
+      m_myRobot2.arcadeDrive(0, 0.5);
+    }
+    while(timer.get()>0.2 && timer.get()<0.45){
+      m_myRobot1.arcadeDrive(0, -0.7);
+      m_myRobot2.arcadeDrive(0, -0.7);
+    }
+    while(timer.get()>0.45 && timer.get()<3){
+      m_myRobot1.arcadeDrive(0, -0.4);
+      m_myRobot2.arcadeDrive(0, -0.4);
+    }
+    while(timer.get()>3 && timer.get()<7){
+      m_myRobot1.arcadeDrive(0, 0);
+      m_myRobot2.arcadeDrive(0, 0);
+    }
+    */
+    
+  }
 }
