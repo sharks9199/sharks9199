@@ -1,6 +1,5 @@
 <!-- HEADER -->
 <div align="center">
-  <img src="https://media.discordapp.net/attachments/1046842821954514955/1063581643950010400/20230111_111922_0000.png" width="280"/>
 
   <h1>Olá a todos! 👋</h1>
 
