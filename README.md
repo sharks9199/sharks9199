@@ -32,7 +32,7 @@
 
 We are a **Brazilian FRC Team 🇧🇷** and we would like to spread STEM over the world.
 
-- 🔭 We are always working...
+- 🔭 We are always improving...
 - 🌱 Exploring new forms to help people using STEM
 - ⚡ In our free time, we like to do some fun stuff
 - 📬 How to reach us:  
