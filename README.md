@@ -24,9 +24,9 @@
 
 ---
 
-<!-- GIF -->
+<!-- IMG -->
 <div align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1RhLjxe1kVEXaXTb7zL1up0gx5vWHC05R" width="600" height="300"/>
+  <img src="https://i.postimg.cc/26PV1h46/20250316-021243000-i-OS.jpg" width="600" height="300"/>
 </div>
 
 ---
