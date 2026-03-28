@@ -72,7 +72,6 @@ We are a **Brazilian FRC Team 🇧🇷** and we would like to spread STEM over t
 <div align="center">
   <img height="170em" src="http://github-readme-streak-stats.herokuapp.com?user=sharks9199&theme=dark&background=000000"/>
   &nbsp;
-  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sharks9199&layout=compact&theme=vision-friendly-dark"/>
 </div>
 
 ---
